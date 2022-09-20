@@ -5,7 +5,7 @@ export default function two_crystal_balls(breaks: boolean[]): number {
 do {
     if(breaks[index]){
         let i = index - sqroot+1
-        while(i<breaks.length){
+        while(i<index && i<breaks.length){
             if(breaks[i]){
                 return i
             }
@@ -15,6 +15,25 @@ do {
     index += sqroot
 } while( index < breaks.length )
 return -1
+
+
+// ANOTHER SOLUTION:
+// const sqrt = Math.floor(Math.sqrt(breaks.length))
+// let index = sqrt
+
+//     for(; index <= breaks.length; index += sqrt){
+//         if(breaks[index]){
+//             break
+//         }
+//     }
+
+//     index -= sqrt
+//     for(let j=0; j<sqrt && index < breaks.length; j++, index++){
+//         if(breaks[index]){
+//             return index
+//         }
+//     }
+//     return -1
 }
 
 // pass in sorted array of booleans, false first, return number, which index is
